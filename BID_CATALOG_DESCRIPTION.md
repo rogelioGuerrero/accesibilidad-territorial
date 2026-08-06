@@ -10,7 +10,7 @@
 | **Lenguaje** | Python |
 | **Versión** | 1.0.0 |
 | **Categorías** | Transporte, Salud, Educación, Planificación territorial |
-| **País de origen** | Colombia |
+| **País de origen** | El Salvador |
 | **Estado** | Activo |
 
 ---
@@ -136,7 +136,7 @@ Un programa de alimentación escolar necesita distribuir raciones desde 5 depós
 3. **Configurar el modo de transporte**: auto, a pie, bicicleta o motocicleta, según el caso de uso.
 4. **Integrar los resultados**: la herramienta entrega rutas y diagnósticos que se incorporan al sistema existente del gobierno.
 
-La configuración específica de cada país o ministerio (datos de escuelas, padrón de hospitales, flota vehicular) es precisamente donde se agrega valor como servicio de implementación.
+La configuración específica de cada país o ministerio (datos de escuelas, padrón de hospitales, flota vehicular) se adapta fácilmente gracias a que la herramienta es de código abierto y acepta cualquier fuente de datos con coordenadas.
 
 ---
 
@@ -181,7 +181,7 @@ Además, la herramienta cuenta con **pruebas automatizadas** que verifican el fu
 - Panel web para explorar brechas de cobertura
 - Conectores para fuentes de datos gubernamentales (institutos de estadística, ministerios sectoriales)
 
-*Algunas de estas funcionalidades podrían ofrecerse como extensiones o servicios complementarios.*
+*Estas funcionalidades están en desarrollo y se incorporarán en futuras versiones.*
 
 ---
 

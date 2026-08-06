@@ -1,6 +1,6 @@
 # Accesibilidad y Optimización Territorial
 
-**Tiempo de viaje real por red vial, mapas de cobertura y planificación automática de rutas para gobiernos**
+**Diagnóstico de accesibilidad y optimización de servicios y recursos para gobiernos**
 
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Python 3.12+](https://img.shields.io/badge/Python-3.12+-blue.svg)](https://www.python.org/downloads/)
@@ -37,7 +37,7 @@ La herramienta combina tres capacidades:
 
 2. **Mapas de cobertura por tiempo** — dibuja el área que se puede alcanzar desde cada servicio en un tiempo determinado (15, 30, 60 minutos). Permite identificar qué comunidades quedan fuera del alcance.
 
-3. **Planificación de rutas óptimas** — cuando un gobierno necesita desplegar vehículos (transporte escolar, brigadas de vacunación, distribución de alimentos), la herramienta calcula las mejores rutas respetando restricciones reales: capacidad, horarios, capacidades especiales, descansos, múltiples puntos de salida, y prioridades.
+3. **Optimización del despliegue de recursos** — cuando un gobierno necesita llevar servicios a la población (transporte escolar, brigadas de vacunación, distribución de alimentos, recolección de residuos), la herramienta calcula la mejor asignación de vehículos y recursos respetando restricciones reales: capacidad, horarios, capacidades especiales, descansos, múltiples puntos de salida, y prioridades.
 
 ---
 
@@ -256,7 +256,7 @@ Un programa de alimentación distribuye raciones desde 5 depósitos a 200 escuel
 - [ ] Panel web para explorar brechas de cobertura
 - [ ] Conectores para fuentes de datos gubernamentales
 
-*Algunas de estas funcionalidades podrían ofrecerse como extensiones o servicios complementarios.*
+*Estas funcionalidades están en desarrollo y se incorporarán en futuras versiones.*
 
 ---
 
@@ -329,7 +329,7 @@ Las contribuciones son bienvenidas. Áreas donde se busca ayuda:
 
 ## Contacto
 
-Para implementación, consultoría o colaboración:
+Para colaboración, adaptación o reportar problemas:
 
 - **GitHub Issues**: [https://github.com/rogelioGuerrero/accesibilidad-territorial/issues](https://github.com/rogelioGuerrero/accesibilidad-territorial/issues)
 - **Email**: [info@agtisa.com]
