@@ -105,7 +105,7 @@ La herramienta puede funcionar de dos formas:
 
 ```bash
 # 1. Clonar el repositorio
-git clone https://github.com/USUARIO/accesibilidad-territorial.git
+git clone https://github.com/rogelioGuerrero/accesibilidad-territorial.git
 cd accesibilidad-territorial
 
 # 2. Instalar dependencias
@@ -331,8 +331,8 @@ Las contribuciones son bienvenidas. Áreas donde se busca ayuda:
 
 Para implementación, consultoría o colaboración:
 
-- **GitHub Issues**: [https://github.com/USUARIO/accesibilidad-territorial/issues](https://github.com/USUARIO/accesibilidad-territorial/issues)
-- **Email**: [contacto@accesibilidad-territorial.dev]
+- **GitHub Issues**: [https://github.com/rogelioGuerrero/accesibilidad-territorial/issues](https://github.com/rogelioGuerrero/accesibilidad-territorial/issues)
+- **Email**: [info@agtisa.com]
 
 ---
 

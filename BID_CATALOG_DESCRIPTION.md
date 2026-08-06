@@ -187,9 +187,9 @@ Además, la herramienta cuenta con **pruebas automatizadas** que verifican el fu
 
 ## Información de contacto
 
-- **Repositorio**: [https://github.com/USUARIO/vrp-solver](https://github.com/USUARIO/vrp-solver)
-- **Issues**: [https://github.com/USUARIO/vrp-solver/issues](https://github.com/USUARIO/vrp-solver/issues)
-- **Email**: [contacto@vrp-solver.dev]
+- **Repositorio**: [https://github.com/rogelioGuerrero/accesibilidad-territorial](https://github.com/rogelioGuerrero/accesibilidad-territorial)
+- **Issues**: [https://github.com/rogelioGuerrero/accesibilidad-territorial/issues](https://github.com/rogelioGuerrero/accesibilidad-territorial/issues)
+- **Email**: [info@agtisa.com]
 
 ---
 
