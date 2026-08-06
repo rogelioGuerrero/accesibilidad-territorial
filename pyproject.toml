@@ -1,0 +1,26 @@
+[project]
+name = "vrp-solver"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "rogelioGuerrero", email = "rogelioGuerrero@users.noreply.github.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.141.1",
+    "folium>=0.20.0",
+    "httpx>=0.28.1",
+    "ortools>=9.15.6755",
+    "python-dotenv>=1.2.2",
+    "uvicorn[standard]>=0.52.1",
+]
+
+[build-system]
+requires = ["uv_build>=0.9.24,<0.10.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+]
