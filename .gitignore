@@ -14,3 +14,21 @@ wheels/
 
 # Test fixtures with cached data (large)
 tests/fixtures/*.json
+tests/fixtures/maps/
+
+# Cache files
+.isochrone_cache/
+
+# Dev/benchmark scripts (not for public)
+scripts/
+
+# Internal docs
+docs/product-architecture.md
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
