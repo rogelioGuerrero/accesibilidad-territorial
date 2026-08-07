@@ -25,13 +25,13 @@ La herramienta combina tres capacidades:
 
 2. **Mapas de cobertura por tiempo** — dibuja el área que se puede alcanzar desde cada servicio en un tiempo determinado (15, 30, 60 minutos). Esto permite responder: *"¿qué porcentaje de la población está a más de 30 minutos de una maternidad de alta complejidad?"* y identificar las comunidades que quedan fuera del alcance.
 
-3. **Planificación de rutas óptimas** — cuando un gobierno necesita desplegar vehículos (transporte escolar, brigadas de vacunación, distribución de alimentos), la herramienta calcula las mejores rutas respetando restricciones reales: cuánto lleva cada vehículo, en qué horarios debe entregar, qué capacidades necesita (como cadena de frío), y desde qué puntos sale. Permite responder: *"¿cuántos vehículos necesito y qué recorrido hacen para servir 200 comunidades?"*
+3. **Optimización del despliegue de recursos humanos y materiales** — cuando un gobierno necesita desplegar brigadas, vehículos o equipos (transporte escolar, brigadas de vacunación, distribución de alimentos, inspecciones sanitarias), la herramienta calcula la mejor asignación de flota y cuadrillas respetando restricciones reales: cuánto lleva cada vehículo, en qué horarios debe entregar, qué habilidades específicas necesita (como cadena de frío), y desde qué puntos sale. Permite responder: *"¿cuántos vehículos y brigadas necesito y qué recorrido hacen para servir 200 comunidades?"*
 
 La herramienta puede funcionar de dos formas:
 - **Con datos reales de red vial**: usando el servicio OpenRouteService (nivel gratuito disponible), calcula tiempos y distancias reales por los caminos de OpenStreetMap.
 - **Con datos sintéticos**: sin conexión a internet ni clave de acceso, estima distancias y tiempos a partir de coordenadas geográficas. Ideal para evaluaciones rápidas, demostraciones, o cuando no se dispone de acceso al servicio de ruteo.
 
-La herramienta se integra a los sistemas existentes del gobierno: recibe los datos de servicios y población, y entrega rutas y diagnósticos listos para usar.
+La herramienta se integra a los sistemas existentes del gobierno: recibe los datos de servicios, población y recursos disponibles, y entrega planes de despliegue y diagnósticos listos para usar.
 
 ---
 
@@ -106,7 +106,7 @@ Una provincia necesita organizar el transporte escolar para 500 niños distribui
 
 ### Vacunación móvil
 
-Un programa de vacunación necesita desplegar brigadas móviles para alcanzar comunidades rurales. La herramienta identifica las comunidades fuera del alcance de los centros de salud fijos, y planifica las rutas de las brigadas móviles considerando: cadena de frío, horarios de atención por comunidad, capacidad de vacunas por vehículo, y múltiples puntos de salida.
+Un programa de vacunación necesita desplegar brigadas móviles para alcanzar comunidades rurales. La herramienta identifica las comunidades fuera del alcance de los centros de salud fijos, y planifica el despliegue de las brigadas considerando: cadena de frío, horarios de atención por comunidad, capacidad de vacunas por equipo, habilidades requeridas, y múltiples puntos de salida.
 
 ### Distribución de alimentos escolares
 

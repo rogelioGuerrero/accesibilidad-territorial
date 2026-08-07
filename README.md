@@ -1,6 +1,6 @@
 # Accesibilidad y Optimización Territorial
 
-**Diagnóstico de accesibilidad y optimización de servicios y recursos para gobiernos**
+**Diagnóstico de accesibilidad y optimización del despliegue de recursos humanos y materiales para gobiernos**
 
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Python 3.12+](https://img.shields.io/badge/Python-3.12+-blue.svg)](https://www.python.org/downloads/)
@@ -37,7 +37,7 @@ La herramienta combina tres capacidades:
 
 2. **Mapas de cobertura por tiempo** — dibuja el área que se puede alcanzar desde cada servicio en un tiempo determinado (15, 30, 60 minutos). Permite identificar qué comunidades quedan fuera del alcance.
 
-3. **Optimización del despliegue de recursos** — cuando un gobierno necesita llevar servicios a la población (transporte escolar, brigadas de vacunación, distribución de alimentos, recolección de residuos), la herramienta calcula la mejor asignación de vehículos y recursos respetando restricciones reales: capacidad, horarios, capacidades especiales, descansos, múltiples puntos de salida, y prioridades.
+3. **Optimización del despliegue de recursos humanos y materiales** — cuando un gobierno necesita desplegar brigadas, vehículos o equipos para llevar servicios a la población (transporte escolar, brigadas de vacunación, distribución de alimentos, inspecciones sanitarias, recolección de residuos), la herramienta calcula la mejor asignación de flota y cuadrillas respetando restricciones reales: capacidad, horarios, habilidades específicas como cadena de frío, descansos, múltiples puntos de salida, y prioridades.
 
 ---
 
@@ -230,7 +230,7 @@ Una provincia necesita organizar el transporte escolar para 500 niños distribui
 
 ### Vacunación móvil
 
-Un programa de vacunación despliega brigadas móviles para alcanzar comunidades rurales. La herramienta identifica las comunidades fuera del alcance de los centros fijos y planifica las rutas de las brigadas considerando cadena de frío, horarios y capacidad de vacunas.
+Un programa de vacunación despliega brigadas móviles para alcanzar comunidades rurales. La herramienta identifica las comunidades fuera del alcance de los centros fijos y planifica el despliegue de las brigadas considerando cadena de frío, horarios, capacidad de vacunas y habilidades requeridas por equipo.
 
 ### Distribución de alimentos escolares
 
