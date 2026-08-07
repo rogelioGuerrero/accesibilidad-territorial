@@ -15,12 +15,12 @@
 - [Descripción](#descripción)
 - [El problema](#el-problema)
 - [Cómo funciona](#cómo-funciona)
-- [Instalación](#instalación)
-- [Demo interactivo](#demo-interactivo)
-- [Uso rápido](#uso-rápido)
 - [Casos de uso](#casos-de-uso)
+- [Diferenciación con herramientas existentes](#diferenciación-con-herramientas-existentes)
+- [Demostración](#demostración)
+- [Nivel de esfuerzo de implementación](#nivel-de-esfuerzo-de-implementación)
+- [Requisitos técnicos](#requisitos-técnicos)
 - [Roadmap](#roadmap)
-- [Pruebas](#pruebas)
 - [Contribuir](#contribuir)
 - [Licencia](#licencia)
 - [Contacto](#contacto)
@@ -33,11 +33,13 @@ Accesibilidad y Optimización Territorial es una herramienta de código abierto 
 
 La herramienta combina tres capacidades:
 
-1. **Tiempo de viaje real por red vial** — calcula cuánto tarda una persona en llegar desde su comunidad hasta cada servicio disponible (escuela, hospital, centro de vacunación), considerando la red de caminos reales y el modo de transporte (auto, a pie, bicicleta, motocicleta).
+1. **Tiempo de viaje real por red vial** — calcula cuánto tarda una persona en llegar desde su comunidad hasta cada servicio disponible (escuela, hospital, centro de vacunación), considerando la red de caminos reales y el modo de transporte (auto, a pie, bicicleta, motocicleta). No usa distancia en línea recta: mide el tiempo real que toma recorrer el camino.
 
-2. **Mapas de cobertura por tiempo** — dibuja el área que se puede alcanzar desde cada servicio en un tiempo determinado (15, 30, 60 minutos). Permite identificar qué comunidades quedan fuera del alcance.
+2. **Mapas de cobertura por tiempo** — dibuja el área que se puede alcanzar desde cada servicio en un tiempo determinado (15, 30, 60 minutos). Esto permite responder: *"¿qué porcentaje de la población está a más de 30 minutos de una maternidad de alta complejidad?"* y identificar las comunidades que quedan fuera del alcance.
 
-3. **Planificación del despliegue de recursos humanos y materiales** — cuando un gobierno necesita llevar servicios a la población (transporte escolar, brigadas de vacunación, distribución de alimentos, inspecciones sanitarias, recolección de residuos), la herramienta calcula la mejor asignación de flota y cuadrillas respetando restricciones reales: capacidad, horarios, habilidades específicas como cadena de frío, descansos, múltiples puntos de salida, y prioridades. La herramienta puede minimizar costo operativo, no solo distancia o tiempo. Además, soporta operaciones de recogida y entrega vinculada: recoger insumos en un centro de acopio y entregarlos en las comunidades, garantizando que la recogida ocurre antes de la entrega.
+3. **Planificación del despliegue de recursos humanos y materiales** — cuando un gobierno necesita llevar servicios a la población (transporte escolar, brigadas de vacunación, distribución de alimentos, inspecciones sanitarias), la herramienta calcula la mejor asignación de flota y cuadrillas respetando restricciones reales: capacidad, horarios, habilidades específicas como cadena de frío, descansos, múltiples puntos de salida, y prioridades. La herramienta puede minimizar costo operativo, no solo distancia o tiempo. Además, soporta operaciones de recogida y entrega vinculada: recoger insumos en un centro de acopio y entregarlos en las comunidades, garantizando que la recogida ocurre antes de la entrega. Permite responder: *"¿cuántas brigadas necesito y qué comunidades atiende cada una para servir 200 comunidades?"*
+
+La herramienta se integra a los sistemas existentes del gobierno: recibe los datos de servicios, población y recursos disponibles, y entrega planes de despliegue y diagnósticos de cobertura listos para usar. Para detalles de instalación, API y uso como librería, ver [docs/USO_TECNICO.md](docs/USO_TECNICO.md).
 
 ---
 
@@ -45,46 +47,58 @@ La herramienta combina tres capacidades:
 
 Los gobiernos de la región necesitan responder preguntas como: *¿qué comunidades están demasiado lejos de una escuela secundaria?* *¿qué porcentaje de la población rural tiene acceso a un hospital en menos de una hora?* *¿cuántas brigadas necesitamos para alcanzar 200 comunidades y cuánto cuesta?*
 
-Responder estas preguntas correctamente es complejo:
+Para responder estas preguntas, se necesita saber cuánto tarda realmente una persona en llegar desde su comunidad hasta el servicio más cercano, por el camino real, en el transporte disponible. Y cuando hay que desplegar brigadas, se necesita saber cuántas se necesitan, qué comunidades atiende cada una, y cuánto cuesta.
 
-- **La distancia en línea recta no refleja el tiempo real de viaje**: dos comunidades pueden estar a la misma distancia de un hospital, pero una tiene camino pavimentado y la otra solo un camino rural.
-- **La cobertura no es un círculo**: un servicio no cubre un radio de X kilómetros, sino un área que depende de los caminos disponibles.
-- **Planificar el despliegue con restricciones reales es difícil**: capacidad, horarios, cadena de frío, múltiples puntos de salida — hacerlo a mano es inviable para cientos de comunidades.
+Sin embargo, responder estas preguntas correctamente es complejo:
+
+1. **La distancia en línea recta no refleja el tiempo real de viaje**: dos comunidades pueden estar a la misma distancia en línea recta de un hospital, pero una tiene camino pavimentado y la otra solo un camino rural. El tiempo de viaje puede ser muy distinto.
+
+2. **La cobertura no es un círculo**: un servicio no cubre un radio de X kilómetros, sino un área que depende de los caminos disponibles. Un mapa de cobertura real debe basarse en minutos de viaje, no en kilómetros en línea recta.
+
+3. **Planificar el despliegue con restricciones reales es difícil**: cuando un gobierno despliega brigadas, debe respetar cuánto lleva cada una, en qué horarios debe entregar, qué capacidades necesita (como refrigeración para vacunas), y desde qué puntos sale. Hacer esto a mano es inviable para cientos de comunidades.
+
+4. **Comparar todos los orígenes con todos los destinos**: para saber cuál es el servicio más cercano a cada comunidad, hay que calcular el tiempo de viaje desde cada comunidad a cada servicio — no solo al más cercano en línea recta, que puede no ser el más cercano por camino real.
+
+**Accesibilidad y Optimización Territorial resuelve estas cuatro necesidades** con tiempos de viaje reales por red vial, mapas de cobertura por minutos, y planificación automática del despliegue.
 
 ---
 
 ## Cómo funciona
 
-```
-Datos de servicios y comunidades
-         │
-         ▼
-┌─────────────────────────────────────┐
-│  Accesibilidad y Optimización       │
-│                                     │
-│  Paso 1: ¿Quién está lejos?         │
-│  · Tiempo de viaje real por red vial│
-│  · Mapa de cobertura por minutos    │
-│  · Comunidades fuera de alcance     │
-│                                     │
-│  Paso 2: ¿Cómo llega el Estado?     │
-│  · Filtrar por alcance              │
-│  · Asignar flota y cuadrillas       │
-│  · Respetar capacidad, horarios,    │
-│    capacidades especiales,          │
-│    descansos, prioridades           │
-│                                     │
-│  Paso 3: Entregar resultado         │
-│  · Plan de despliegue por brigada   │
-│  · Tiempos y distancias             │
-│  · Costos desglosados               │
-│  · Comunidades no atendidas         │
-└─────────────────────────────────────┘
-         │
-         ▼
-Plan de despliegue y diagnóstico de cobertura
-listos para integrar al sistema del gobierno
-```
+La herramienta opera en dos modos que pueden usarse independientemente o en conjunto:
+
+### Modo 1: Diagnóstico de Accesibilidad
+
+Responde: *"¿quién está lejos y cuánto tarda?"*
+
+1. **Cargar los datos**: ubicación de los servicios (escuelas, hospitales, centros de vacunación) y ubicación de las comunidades (radios censales, localidades, parajes rurales).
+2. **Calcular el tiempo de viaje real** desde cada comunidad hasta cada servicio, por la red de caminos reales y según el modo de transporte (auto, a pie, bicicleta).
+3. **Identificar el servicio más cercano a cada comunidad** por tiempo de viaje real — no por distancia en línea recta.
+4. **Dibujar el mapa de cobertura** de cada servicio: el área que se alcanza en 15, 30 o 60 minutos. Los resultados se guardan para no recalcularlos cada vez.
+5. **Identificar brechas**: las comunidades que quedan fuera de todos los mapas de cobertura son la población sin acceso.
+
+### Modo 2: Planificación del Despliegue
+
+Responde: *"¿cómo llega el Estado con los recursos disponibles?"*
+
+1. **Cargar la flota**: vehículos con su capacidad (peso, volumen, asientos), horarios, costos, y capacidades especiales (refrigeración, etc.).
+2. **Cargar los puntos a visitar**: entregas, recogidas, o servicios a realizar, con sus ventanas de tiempo y prioridades.
+3. **Filtrar por alcance**: la herramienta descarta los puntos que ningún vehículo puede alcanzar y asigna cada punto al punto de salida más cercano.
+4. **Calcular el mejor plan de despliegue** respetando:
+   - Cuánto lleva cada vehículo (peso y volumen)
+   - Horarios de entrega o servicio
+   - Capacidades especiales requeridas (cadena de frío, manipulación de frágiles)
+   - Descansos del equipo con ventana horaria
+   - Recogidas y entregas vinculadas (recoger en un punto, entregar en otro)
+   - Múltiples puntos de salida
+   - Horarios de inicio y fin de jornada
+   - Distancia o cantidad máxima de paradas por brigada
+   - Prioridades: las comunidades de alta prioridad se atienden primero
+5. **Entregar el resultado**: plan de despliegue por brigada con orden de paradas, tiempos de llegada y salida, distancias, costos desglosados por brigada, y lista de comunidades que no se pudieron atender con diagnóstico de causa.
+
+### Modo 3: Diagnóstico + Intervención
+
+El flujo completo: diagnosticar brechas de cobertura (Modo 1) → diseñar intervención optimizada (Modo 2). Por ejemplo: *"30% de los niños rurales están a más de 60 minutos de una escuela secundaria → con 3 brigadas de transporte escolar adicionales, se cubre el 95%"*.
 
 La herramienta puede funcionar de dos formas:
 
@@ -93,220 +107,94 @@ La herramienta puede funcionar de dos formas:
 
 ---
 
-## Instalación
-
-### Requisitos
-
-- Python 3.12+
-- [uv](https://docs.astral.sh/uv/) (gestor de paquetes)
-- Clave de OpenRouteService (opcional — la herramienta funciona sin ella en modo sintético)
-
-### Pasos
-
-```bash
-# 1. Clonar el repositorio
-git clone https://github.com/rogelioGuerrero/accesibilidad-territorial.git
-cd accesibilidad-territorial
-
-# 2. Instalar dependencias
-uv sync
-
-# 3. (Opcional) Configurar OpenRouteService para datos reales de red vial
-#    Registrarse en https://openrouteservice.org/ (gratis)
-#    Crear archivo .env con:
-#    ORS_API_KEY=tu_clave_aqui
-#    MATRIX_PROVIDER=ors
-#    ISOCHRONE_PROVIDER=ors
-
-# 4. Verificar instalación
-uv run pytest tests/ -v
-```
-
----
-
-## Demo interactivo
-
-La herramienta incluye un mapa interactivo con 8 casos predefinidos que se ejecutan sin instalación ni clave de acceso:
-
-```bash
-uv run python -m uvicorn vrp_solver.main:app --host 127.0.0.1 --port 8000
-```
-
-Abrir http://localhost:8000/demo en el navegador. Casos disponibles:
-
-| Caso | Descripción |
-|------|-------------|
-| Básico | 1 brigada, 5 comunidades |
-| Multi-brigada | 3 brigadas, 15 comunidades con capacidad limitada |
-| Multi-punto de salida | 2 puntos de salida, 4 brigadas, 20 comunidades |
-| Ventanas de tiempo | 2 brigadas, 10 comunidades con horarios de atención |
-| Backlog + isocronas | 50 comunidades, selección por prioridad y cobertura |
-| Recogida y entrega | 3 pares de recogida y entrega vinculados |
-| Habilidades | Brigada con cadena de frío vs normal |
-| Descansos | 1 brigada con descanso del equipo |
-
----
-
-## Uso rápido
-
-### Como API
-
-```bash
-# Iniciar el servidor
-uv run python -m uvicorn vrp_solver.main:app --host 0.0.0.0 --port 8000
-```
-
-```python
-import httpx
-
-request = {
-    "locations": [
-        {"id": "depot", "name": "Punto de salida", "coords": [4.65, -74.10], "type": "depot"},
-        {"id": "d1", "name": "Comunidad 1", "coords": [4.66, -74.09], "type": "delivery", "weight_demand": 20.0},
-        {"id": "d2", "name": "Comunidad 2", "coords": [4.64, -74.11], "type": "delivery", "weight_demand": 15.0},
-        {"id": "d3", "name": "Comunidad 3", "coords": [4.67, -74.08], "type": "delivery", "weight_demand": 10.0},
-    ],
-    "vehicles": [
-        {
-            "id": "v1", "name": "Brigada 1",
-            "start_location_id": "depot", "end_location_id": "depot",
-            "weight_capacity": 200.0,
-            "fixed_cost": 50.0, "cost_per_km": 2.5, "cost_per_hour": 20.0, "cost_per_stop": 3.0
-        }
-    ],
-    "config": {"time_limit_seconds": 5, "optimize_by": "cost"}
-}
-
-response = httpx.post("http://localhost:8000/optimize", json=request)
-result = response.json()
-
-for route in result["routes"]:
-    print(f"{route['vehicle_name']}: {len(route['stops'])} comunidades, "
-          f"{route['total_distance']/1000:.1f} km, ${route['cost']['total']:.2f}")
-```
-
-### Como librería
-
-```python
-from vrp_solver.models import Location, LocationType, Vehicle, SolverConfig, OptimizeRequest
-from vrp_solver.solver import VRPSolver
-
-request = OptimizeRequest(
-    locations=[
-        Location(id="depot", name="Punto de salida", coords=(4.65, -74.10), type=LocationType.depot),
-        Location(id="d1", name="Comunidad 1", coords=(4.66, -74.09), type=LocationType.delivery, weight_demand=20.0),
-        Location(id="d2", name="Comunidad 2", coords=(4.64, -74.11), type=LocationType.delivery, weight_demand=15.0),
-    ],
-    vehicles=[
-        Vehicle(id="v1", name="Brigada 1", start_location_id="depot", end_location_id="depot",
-                weight_capacity=200.0, fixed_cost=50.0, cost_per_km=2.5, cost_per_hour=20.0, cost_per_stop=3.0)
-    ],
-    config=SolverConfig(time_limit_seconds=5, optimize_by="cost"),
-)
-
-solver = VRPSolver(
-    locations=request.locations,
-    vehicles=request.vehicles,
-    config=request.config,
-    matrix_provider="synthetic",  # o "ors" para datos reales
-)
-result = solver.solve()
-print(f"Brigadas usadas: {result.statistics.vehicles_used}")
-print(f"Distancia total: {result.statistics.total_distance / 1000:.1f} km")
-print(f"Costo total: ${result.statistics.total_cost:.2f}")
-```
-
----
-
 ## Casos de uso
 
 ### Accesibilidad a maternidades de alta complejidad
 
-Un ministerio de salud necesita identificar qué población está fuera del alcance de maternidades de alta complejidad. La herramienta calcula el área alcanzable en 60, 90 y 120 minutos en auto desde cada maternidad, identifica los radios censales que quedan fuera, y calcula qué porcentaje de mujeres en edad reproductiva queda excluida.
+Un ministerio de salud necesita identificar qué población está fuera del alcance de maternidades de alta complejidad neonatal. La herramienta calcula el área alcanzable en 60, 90 y 120 minutos en auto desde cada maternidad, identifica los radios censales que quedan fuera, y calcula qué porcentaje de mujeres en edad reproductiva (15-49 años) queda excluida. Para cada comunidad, identifica la maternidad más cercana por tiempo de viaje real.
 
 ### Transporte escolar rural
 
-Una provincia necesita organizar el transporte escolar para 500 niños distribuidos en 80 parajes rurales. La herramienta calcula el tiempo de viaje desde cada paraje hasta cada escuela, asigna cada niño a la escuela más cercana por tiempo de viaje real, y planifica el despliegue de los colectivos respetando asientos, horarios y tiempo máximo de viaje.
+Una provincia necesita organizar el transporte escolar para 500 niños distribuidos en 80 parajes rurales que asisten a 12 escuelas. La herramienta calcula el tiempo de viaje desde cada paraje hasta cada escuela, asigna cada niño a la escuela más cercana por tiempo de viaje real, y planifica el despliegue de los colectivos respetando: cantidad de asientos, horario de entrada (08:00), horario de salida (16:00), y tiempo máximo de viaje por niño. El resultado: número mínimo de colectivos necesarios, qué comunidades atiende cada uno, y costo total estimado.
 
 ### Vacunación móvil
 
-Un programa de vacunación despliega brigadas móviles para alcanzar comunidades rurales. La herramienta identifica las comunidades fuera del alcance de los centros fijos y planifica el despliegue de las brigadas considerando cadena de frío, horarios, capacidad de vacunas y habilidades requeridas por equipo. El resultado: cuántas brigadas se necesitan, qué comunidades atiende cada una, y cuánto cuesta.
+Un programa de vacunación necesita desplegar brigadas móviles para alcanzar comunidades rurales. La herramienta identifica las comunidades fuera del alcance de los centros de salud fijos, y planifica el despliegue de las brigadas considerando: cadena de frío, horarios de atención por comunidad, capacidad de vacunas por equipo, habilidades requeridas, y múltiples puntos de salida.
 
 ### Distribución de alimentos escolares
 
-Un programa de alimentación escolar distribuye raciones desde 5 centros de acopio a 200 escuelas. La herramienta planifica el despliegue de los camiones respetando capacidad, horarios de entrega y costo por kilómetro, con desglose de costos por brigada para presupuestar la operación.
+Un programa de alimentación escolar necesita distribuir raciones desde 5 centros de acopio a 200 escuelas. La herramienta planifica el despliegue de los camiones respetando: capacidad de peso y volumen, horarios de entrega por escuela, múltiples centros de acopio, y costo por kilómetro. El resultado incluye el costo desglosado por brigada para presupuestar la operación.
+
+---
+
+## Diferenciación con herramientas existentes
+
+| Herramienta | Qué hace | Qué le falta |
+|-------------|----------|-------------|
+| geo_escuelas (Fundación Bunge y Born) | Mide distancia a la escuela más cercana y muestra el resultado en un mapa | Selecciona la escuela por distancia en línea recta, no por tiempo de viaje real. No calcula mapas de cobertura por minutos. No planifica el despliegue de brigadas |
+| IVS-MI (Fundación Bunge y Born) | Mide distancia a la maternidad más cercana y la cruza con datos socioeconómicos | Selecciona la maternidad por distancia en línea recta. No calcula mapas de cobertura por minutos. No planifica el despliegue de brigadas |
+| Matriz OD Transporte Público (BID) | Construye matriz de viajes en transporte público desde datos de tarjeta SUBE | Solo aplica al transporte público del AMBA. No mide accesibilidad a servicios. No planifica el despliegue de brigadas |
+| Congestiometro (BID) | Mide la congestión vehicular en ciudades | Mide congestión, no accesibilidad a servicios ni planificación del despliegue |
+
+**Esta es la única herramienta que combina: tiempo de viaje real por red vial + mapas de cobertura por minutos + planificación automática del despliegue con restricciones reales.**
+
+---
+
+## Demostración
+
+La herramienta incluye un **mapa interactivo de demostración** con casos predefinidos que pueden ejecutarse sin instalación ni clave de acceso, usando datos sintéticos. Los casos disponibles incluyen: despliegue básico, múltiples brigadas, múltiples puntos de salida, ventanas de tiempo, cobertura por minutos, recogidas y entregas vinculadas, capacidades especiales (cadena de frío), y descansos del equipo.
+
+![Demostración del mapa interactivo](img/demo_map.png)
+
+Además, la herramienta cuenta con **pruebas automatizadas** que verifican el funcionamiento correcto de cada capacidad usando datos reales de red vial: capacidad de brigadas, ventanas de tiempo, recogidas y entregas, múltiples puntos de salida, costos, prioridades, y manejo de comunidades fuera de cobertura.
+
+---
+
+## Nivel de esfuerzo de implementación
+
+**Medio** — La herramienta se instala y se conecta a los sistemas del gobierno. La implementación requiere:
+
+1. **Instalar la herramienta**: requiere Python y una clave de acceso al servicio de ruteo (hay un nivel gratuito disponible).
+2. **Cargar los datos del dominio**: ubicación de los servicios (escuelas, hospitales) y de las comunidades (radios censales, localidades). La herramienta acepta cualquier archivo con coordenadas, sin importar la fuente.
+3. **Configurar el modo de transporte**: auto, a pie, bicicleta o motocicleta, según el caso de uso.
+4. **Integrar los resultados**: la herramienta entrega planes de despliegue y diagnósticos de cobertura que se incorporan al sistema existente del gobierno.
+
+La configuración específica de cada país o ministerio (datos de escuelas, padrón de hospitales, flota vehicular) se adapta fácilmente gracias a que la herramienta es de código abierto y acepta cualquier fuente de datos con coordenadas.
+
+---
+
+## Requisitos técnicos
+
+- **Python 3.12+**
+- **Acceso al servicio de ruteo OpenRouteService** (nivel gratuito disponible, también se puede instalar localmente)
+- **Todas las demás dependencias se instalan automáticamente** (motor de optimización, servidor web, etc.)
+- **Despliegue**: local, en servidores propios del gobierno, o en la nube
+- **No requiere software adicional**: no necesita R, PostgreSQL, ni herramientas de mapas externas
 
 ---
 
 ## Roadmap
 
-- [x] Tiempo de viaje real por red vial entre todos los puntos (también modo sintético sin internet)
-- [x] Mapas de cobertura por minutos de viaje con guardado automático
-- [x] Planificación del despliegue con capacidad, horarios, habilidades especiales, descansos, múltiples puntos de salida, y prioridades
-- [x] Filtrado automático de comunidades fuera del alcance
-- [x] Desglose de costos por brigada (fijo + distancia + tiempo + paradas)
-- [x] Reintento automático entregando la mejor solución parcial
-- [x] Manejo de prioridades alta, media y baja
-- [x] Agrupación automática por territorio para planificar cientos de comunidades
-- [x] Mapa interactivo de demostración con 8 casos predefinidos
-- [x] Pruebas automatizadas con datos reales de red vial
-- [ ] Módulo de diagnóstico de accesibilidad sin planificar despliegue
-- [ ] Descubrimiento automático de servicios públicos desde bases de datos abiertas
-- [ ] Exportación a mapas interactivos para visualización web
-- [ ] Panel web para explorar brechas de cobertura
-- [ ] Conectores para fuentes de datos gubernamentales
+**Completado:**
+- Cálculo de tiempos de viaje reales por red vial entre todos los puntos (también modo sintético sin internet)
+- Mapas de cobertura por minutos de viaje, con guardado automático para no recalcular
+- Planificación del despliegue respetando capacidad, horarios, habilidades especiales, descansos, múltiples puntos de salida, y prioridades
+- Filtrado automático de comunidades fuera del alcance de cualquier punto de salida
+- Desglose de costos por brigada (fijo + distancia + tiempo + paradas)
+- Reintento automático cuando no hay solución exacta, entregando la mejor solución parcial
+- Manejo de comunidades con prioridad alta, media y baja
+- Agrupación automática para planificar más de 100 puntos
+- Mapa interactivo de demostración con 8 casos predefinidos
+- Pruebas automatizadas con datos reales de red vial
+
+**Futuras versiones:**
+- Módulo de diagnóstico de accesibilidad sin necesidad de planificar despliegue
+- Descubrimiento automático de servicios públicos por categoría (escuelas, hospitales, etc.) desde bases de datos abiertas
+- Exportación a mapas interactivos para visualización web
+- Panel web para explorar brechas de cobertura
+- Conectores para fuentes de datos gubernamentales (institutos de estadística, ministerios sectoriales)
 
 *Estas funcionalidades están en desarrollo y se incorporarán en futuras versiones.*
-
----
-
-## Pruebas
-
-```bash
-# Ejecutar todas las pruebas
-uv run pytest tests/ -v
-
-# Pruebas del motor de optimización (con matriz ORS real cacheada)
-uv run pytest tests/test_solver.py -v
-
-# Pruebas de regresión
-uv run pytest tests/test_fixes.py -v
-```
-
-Las pruebas verifican: capacidad de brigadas, ventanas de tiempo, recogidas y entregas vinculadas, múltiples puntos de salida, costos, prioridades, habilidades especiales, descansos del equipo, y manejo de comunidades fuera de cobertura.
-
----
-
-## Estructura del proyecto
-
-```
-accesibilidad-territorial/
-├── src/vrp_solver/
-│   ├── main.py              # Servidor API (FastAPI)
-│   ├── solver.py            # Motor de optimización
-│   ├── model_builder.py     # Construcción del modelo de optimización
-│   ├── result_extractor.py  # Extracción y formato de resultados
-│   ├── matrix.py            # Matriz de tiempos/distancias (real y sintética)
-│   ├── isochrone_cache.py   # Mapas de cobertura con guardado automático
-│   ├── node_selector.py     # Filtrado por cobertura y prioridades
-│   ├── models.py            # Modelos de datos de entrada y salida
-│   ├── validator.py         # Validación de solicitudes
-│   ├── breaks.py            # Manejo de descansos del equipo
-│   ├── demo.py              # Mapa interactivo de demostración
-│   └── utils.py             # Utilidades (distancia haversine, etc.)
-├── tests/                   # Pruebas automatizadas
-│   ├── fixtures/            # Datos de prueba (matrices reales cacheadas)
-│   ├── test_solver.py       # Pruebas del solver
-│   ├── test_fixes.py        # Pruebas de regresión
-│   ├── test_isochrone.py    # Pruebas de mapas de cobertura
-│   └── test_validator.py    # Pruebas de validación
-├── scripts/                 # Scripts auxiliares
-├── img/                     # Imágenes del README
-├── docs/                    # Documentación adicional
-├── pyproject.toml
-├── LICENSE
-└── README.md
-```
 
 ---
 
@@ -336,4 +224,19 @@ Para colaboración, adaptación o reportar problemas:
 
 ---
 
-*Accesibilidad y Optimización Territorial es un Bien Público Digital candidato al catálogo de Código para el Desarrollo del BID. Ver [BID_CATALOG_DESCRIPTION.md](BID_CATALOG_DESCRIPTION.md) para la descripción completa del catálogo.*
+## Datos de la herramienta
+
+| Campo | Valor |
+|-------|-------|
+| **Nombre** | Accesibilidad y Optimización Territorial |
+| **Tipo de herramienta** | API, Algoritmo |
+| **Licencia** | Apache License 2.0 |
+| **Lenguaje** | Python |
+| **Versión** | 1.0.0 |
+| **Categorías** | Transporte, Salud, Educación, Planificación territorial |
+| **País de origen** | El Salvador |
+| **Estado** | Activo |
+
+---
+
+*Accesibilidad y Optimización Territorial aspira a ser reconocido como Bien Público Digital por su contribución a la mejora de la planificación de servicios públicos en América Latina y el Caribe. La herramienta es de código abierto bajo licencia Apache 2.0, permite uso comercial, y está diseñada para ser reutilizable por cualquier gobierno de la región sin depender de proveedores específicos. A diferencia de enfoques que miden accesibilidad por distancia en línea recta, esta herramienta utiliza tiempos de viaje reales por red vial, mapas de cobertura por minutos, y planificación automática del despliegue — entregando evidencia territorial confiable para la toma de decisiones en políticas públicas.*
