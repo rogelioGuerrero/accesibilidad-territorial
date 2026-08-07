@@ -247,7 +247,7 @@ Un programa de alimentación distribuye raciones desde 5 depósitos a 200 escuel
 - [x] Desglose de costos por ruta (fijo + distancia + tiempo + paradas)
 - [x] Reintento automático entregando la mejor solución parcial
 - [x] Manejo de prioridades alta, media y baja
-- [x] Agrupación automática para planificar más de 100 puntos
+- [x] Agrupación automática por territorio para planificar cientos de comunidades
 - [x] Mapa interactivo de demostración con 8 casos predefinidos
 - [x] Pruebas automatizadas con datos reales de red vial
 - [ ] Módulo de diagnóstico de accesibilidad sin planificar rutas
