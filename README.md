@@ -37,7 +37,7 @@ La herramienta combina tres capacidades:
 
 2. **Mapas de cobertura por tiempo** — dibuja el área que se puede alcanzar desde cada servicio en un tiempo determinado (15, 30, 60 minutos). Permite identificar qué comunidades quedan fuera del alcance.
 
-3. **Optimización del despliegue de recursos humanos y materiales** — cuando un gobierno necesita desplegar brigadas, vehículos o equipos para llevar servicios a la población (transporte escolar, brigadas de vacunación, distribución de alimentos, inspecciones sanitarias, recolección de residuos), la herramienta calcula la mejor asignación de flota y cuadrillas respetando restricciones reales: capacidad, horarios, habilidades específicas como cadena de frío, descansos, múltiples puntos de salida, y prioridades.
+3. **Optimización del despliegue de recursos humanos y materiales** — cuando un gobierno necesita desplegar brigadas, vehículos o equipos para llevar servicios a la población (transporte escolar, brigadas de vacunación, distribución de alimentos, inspecciones sanitarias, recolección de residuos), la herramienta calcula la mejor asignación de flota y cuadrillas respetando restricciones reales: capacidad, horarios, habilidades específicas como cadena de frío, descansos, múltiples puntos de salida, y prioridades. La herramienta puede optimizar por menor costo operativo, no solo por distancia o tiempo. Además, soporta operaciones de recogida y entrega vinculada: recoger insumos en un centro de acopio y entregarlos en las comunidades, garantizando que la recogida ocurre antes de la entrega.
 
 ---
 
