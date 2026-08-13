@@ -1,0 +1,1562 @@
+[
+  {
+    "scenario": "S1: 8 entregas, 2 veh, sin breaks",
+    "comparison": {
+      "ors": {
+        "distance_m": 50315,
+        "travel_s": 6056,
+        "vehicles": 2,
+        "unassigned": 0
+      },
+      "ortools": {
+        "distance_m": 49763.0,
+        "travel_s": 6103,
+        "vehicles": 2,
+        "unassigned": 0
+      },
+      "diff": {
+        "distance_m": -552.0,
+        "distance_pct": -1.1,
+        "travel_s": 47,
+        "travel_pct": 0.8,
+        "vehicles_match": true,
+        "unassigned_match": true
+      }
+    },
+    "ors_routes": [
+      {
+        "vehicle": 1,
+        "cost": 3430,
+        "delivery": [
+          50
+        ],
+        "amount": [
+          50
+        ],
+        "pickup": [
+          0
+        ],
+        "setup": 0,
+        "service": 1500,
+        "duration": 3430,
+        "waiting_time": 0,
+        "priority": 0,
+        "steps": [
+          {
+            "type": "start",
+            "location": [
+              -3.7038,
+              40.4168
+            ],
+            "setup": 0,
+            "service": 0,
+            "waiting_time": 0,
+            "load": [
+              50
+            ],
+            "arrival": 28800,
+            "duration": 0,
+            "violations": []
+          },
+          {
+            "type": "job",
+            "location": [
+              -3.71,
+              40.43
+            ],
+            "id": 102,
+            "setup": 0,
+            "service": 300,
+            "waiting_time": 0,
+            "job": 102,
+            "load": [
+              40
+            ],
+            "arrival": 29288,
+            "duration": 488,
+            "violations": []
+          },
+          {
+            "type": "job",
+            "location": [
+              -3.69,
+              40.45
+            ],
+            "id": 105,
+            "setup": 0,
+            "service": 300,
+            "waiting_time": 0,
+            "job": 105,
+            "load": [
+              30
+            ],
+            "arrival": 30081,
+            "duration": 981,
+            "violations": []
+          },
+          {
+            "type": "job",
+            "location": [
+              -3.68,
+              40.47
+            ],
+            "id": 107,
+            "setup": 0,
+            "service": 300,
+            "waiting_time": 0,
+            "job": 107,
+            "load": [
+              20
+            ],
+            "arrival": 30769,
+            "duration": 1369,
+            "violations": []
+          },
+          {
+            "type": "job",
+            "location": [
+              -3.67,
+              40.447
+            ],
+            "id": 101,
+            "setup": 0,
+            "service": 300,
+            "waiting_time": 0,
+            "job": 101,
+            "load": [
+              10
+            ],
+            "arrival": 31596,
+            "duration": 1896,
+            "violations": []
+          },
+          {
+            "type": "job",
+            "location": [
+              -3.65,
+              40.41
+            ],
+            "id": 108,
+            "setup": 0,
+            "service": 300,
+            "waiting_time": 0,
+            "job": 108,
+            "load": [
+              0
+            ],
+            "arrival": 32499,
+            "duration": 2499,
+            "violations": []
+          },
+          {
+            "type": "end",
+            "location": [
+              -3.7038,
+              40.4168
+            ],
+            "setup": 0,
+            "service": 0,
+            "waiting_time": 0,
+            "load": [
+              0
+            ],
+            "arrival": 33730,
+            "duration": 3430,
+            "violations": []
+          }
+        ],
+        "violations": []
+      },
+      {
+        "vehicle": 2,
+        "cost": 2626,
+        "delivery": [
+          30
+        ],
+        "amount": [
+          30
+        ],
+        "pickup": [
+          0
+        ],
+        "setup": 0,
+        "service": 900,
+        "duration": 2626,
+        "waiting_time": 0,
+        "priority": 0,
+        "steps": [
+          {
+            "type": "start",
+            "location": [
+              -3.7038,
+              40.4168
+            ],
+            "setup": 0,
+            "service": 0,
+            "waiting_time": 0,
+            "load": [
+              30
+            ],
+            "arrival": 28800,
+            "duration": 0,
+            "violations": []
+          },
+          {
+            "type": "job",
+            "location": [
+              -3.74,
+              40.39
+            ],
+            "id": 106,
+            "setup": 0,
+            "service": 300,
+            "waiting_time": 0,
+            "job": 106,
+            "load": [
+              20
+            ],
+            "arrival": 29516,
+            "duration": 716,
+            "violations": []
+          },
+          {
+            "type": "job",
+            "location": [
+              -3.72,
+              40.4
+            ],
+            "id": 103,
+            "setup": 0,
+            "service": 300,
+            "waiting_time": 0,
+            "job": 103,
+            "load": [
+              10
+            ],
+            "arrival": 30188,
+            "duration": 1088,
+            "violations": []
+          },
+          {
+            "type": "job",
+            "location": [
+              -3.67,
+              40.38
+            ],
+            "id": 104,
+            "setup": 0,
+            "service": 300,
+            "waiting_time": 0,
+            "job": 104,
+            "load": [
+              0
+            ],
+            "arrival": 31067,
+            "duration": 1667,
+            "violations": []
+          },
+          {
+            "type": "end",
+            "location": [
+              -3.7038,
+              40.4168
+            ],
+            "setup": 0,
+            "service": 0,
+            "waiting_time": 0,
+            "load": [
+              0
+            ],
+            "arrival": 32326,
+            "duration": 2626,
+            "violations": []
+          }
+        ],
+        "violations": []
+      }
+    ],
+    "ors_summary": {
+      "cost": 6056,
+      "routes": 2,
+      "unassigned": 0,
+      "delivery": [
+        80
+      ],
+      "amount": [
+        80
+      ],
+      "pickup": [
+        0
+      ],
+      "setup": 0,
+      "service": 2400,
+      "duration": 6056,
+      "waiting_time": 0,
+      "priority": 0,
+      "violations": [],
+      "computing_times": {
+        "loading": 61,
+        "solving": 3,
+        "routing": 0
+      }
+    },
+    "ortools_routes": [
+      {
+        "vehicle_id": "veh_1",
+        "total_distance": 27520.0,
+        "total_duration": 4300.0,
+        "travel_time": 3100,
+        "total_stops": 6,
+        "steps": [
+          {
+            "location_id": "depot",
+            "type": "depot",
+            "arrival": "08:00:00",
+            "departure": "08:00:00"
+          },
+          {
+            "location_id": "del_6",
+            "type": "delivery",
+            "arrival": "08:11:56",
+            "departure": "08:16:56"
+          },
+          {
+            "location_id": "del_3",
+            "type": "delivery",
+            "arrival": "08:23:08",
+            "departure": "08:28:08"
+          },
+          {
+            "location_id": "del_4",
+            "type": "delivery",
+            "arrival": "08:37:47",
+            "departure": "08:42:47"
+          },
+          {
+            "location_id": "del_8",
+            "type": "delivery",
+            "arrival": "08:51:09",
+            "departure": "08:56:09"
+          },
+          {
+            "location_id": "depot",
+            "type": "depot",
+            "arrival": "09:11:40",
+            "departure": null
+          }
+        ]
+      },
+      {
+        "vehicle_id": "veh_2",
+        "total_distance": 22243.0,
+        "total_duration": 4203.0,
+        "travel_time": 3003,
+        "total_stops": 6,
+        "steps": [
+          {
+            "location_id": "depot",
+            "type": "depot",
+            "arrival": "08:00:00",
+            "departure": "08:00:00"
+          },
+          {
+            "location_id": "del_2",
+            "type": "delivery",
+            "arrival": "08:08:08",
+            "departure": "08:13:08"
+          },
+          {
+            "location_id": "del_1",
+            "type": "delivery",
+            "arrival": "08:22:10",
+            "departure": "08:27:10"
+          },
+          {
+            "location_id": "del_7",
+            "type": "delivery",
+            "arrival": "08:36:26",
+            "departure": "08:41:26"
+          },
+          {
+            "location_id": "del_5",
+            "type": "delivery",
+            "arrival": "08:49:54",
+            "departure": "08:54:54"
+          },
+          {
+            "location_id": "depot",
+            "type": "depot",
+            "arrival": "09:10:03",
+            "departure": null
+          }
+        ]
+      }
+    ],
+    "ortools_statistics": {
+      "vehicles_used": 2,
+      "vehicles_available": 2,
+      "nodes_assigned": 8,
+      "nodes_unassigned": 0,
+      "total_distance": 49763.0,
+      "total_duration": 8503.0
+    },
+    "ortools_constraints": {
+      "passed": true,
+      "errors": []
+    },
+    "ors_constraints": {
+      "passed": true,
+      "errors": []
+    },
+    "timing": {
+      "ors_s": 1.12,
+      "ortools_s": 30.17
+    }
+  },
+  {
+    "scenario": "S2: 8 entregas, 2 veh, con lunch break",
+    "comparison": {
+      "ors": {
+        "distance_m": 37726,
+        "travel_s": 6056,
+        "vehicles": 2,
+        "unassigned": 0
+      },
+      "ortools": {
+        "distance_m": 32617.0,
+        "travel_s": 6189,
+        "vehicles": 2,
+        "unassigned": 0
+      },
+      "diff": {
+        "distance_m": -5109.0,
+        "distance_pct": -13.5,
+        "travel_s": 133,
+        "travel_pct": 2.2,
+        "vehicles_match": true,
+        "unassigned_match": true
+      }
+    },
+    "ors_routes": [
+      {
+        "vehicle": 1,
+        "cost": 3430,
+        "delivery": [
+          50
+        ],
+        "amount": [
+          50
+        ],
+        "pickup": [
+          0
+        ],
+        "setup": 0,
+        "service": 4200,
+        "duration": 3430,
+        "waiting_time": 0,
+        "priority": 0,
+        "steps": [
+          {
+            "type": "start",
+            "location": [
+              -3.7038,
+              40.4168
+            ],
+            "setup": 0,
+            "service": 0,
+            "waiting_time": 0,
+            "load": [
+              50
+            ],
+            "arrival": 38270,
+            "duration": 0,
+            "violations": []
+          },
+          {
+            "type": "job",
+            "location": [
+              -3.71,
+              40.43
+            ],
+            "id": 102,
+            "setup": 0,
+            "service": 300,
+            "waiting_time": 0,
+            "job": 102,
+            "load": [
+              40
+            ],
+            "arrival": 38758,
+            "duration": 488,
+            "violations": []
+          },
+          {
+            "type": "job",
+            "location": [
+              -3.69,
+              40.45
+            ],
+            "id": 105,
+            "setup": 0,
+            "service": 300,
+            "waiting_time": 0,
+            "job": 105,
+            "load": [
+              30
+            ],
+            "arrival": 39551,
+            "duration": 981,
+            "violations": []
+          },
+          {
+            "type": "job",
+            "location": [
+              -3.68,
+              40.47
+            ],
+            "id": 107,
+            "setup": 0,
+            "service": 300,
+            "waiting_time": 0,
+            "job": 107,
+            "load": [
+              20
+            ],
+            "arrival": 40239,
+            "duration": 1369,
+            "violations": []
+          },
+          {
+            "type": "job",
+            "location": [
+              -3.67,
+              40.447
+            ],
+            "id": 101,
+            "setup": 0,
+            "service": 300,
+            "waiting_time": 0,
+            "job": 101,
+            "load": [
+              10
+            ],
+            "arrival": 41066,
+            "duration": 1896,
+            "violations": []
+          },
+          {
+            "type": "job",
+            "location": [
+              -3.65,
+              40.41
+            ],
+            "id": 108,
+            "setup": 0,
+            "service": 300,
+            "waiting_time": 0,
+            "job": 108,
+            "load": [
+              0
+            ],
+            "arrival": 41969,
+            "duration": 2499,
+            "violations": []
+          },
+          {
+            "type": "break",
+            "id": 100,
+            "setup": 0,
+            "service": 2700,
+            "waiting_time": 0,
+            "load": [
+              0
+            ],
+            "arrival": 43200,
+            "duration": 3430,
+            "violations": []
+          },
+          {
+            "type": "end",
+            "location": [
+              -3.7038,
+              40.4168
+            ],
+            "setup": 0,
+            "service": 0,
+            "waiting_time": 0,
+            "load": [
+              0
+            ],
+            "arrival": 45900,
+            "duration": 3430,
+            "violations": []
+          }
+        ],
+        "violations": []
+      },
+      {
+        "vehicle": 2,
+        "cost": 2626,
+        "delivery": [
+          30
+        ],
+        "amount": [
+          30
+        ],
+        "pickup": [
+          0
+        ],
+        "setup": 0,
+        "service": 3600,
+        "duration": 2626,
+        "waiting_time": 0,
+        "priority": 0,
+        "steps": [
+          {
+            "type": "start",
+            "location": [
+              -3.7038,
+              40.4168
+            ],
+            "setup": 0,
+            "service": 0,
+            "waiting_time": 0,
+            "load": [
+              30
+            ],
+            "arrival": 39674,
+            "duration": 0,
+            "violations": []
+          },
+          {
+            "type": "job",
+            "location": [
+              -3.74,
+              40.39
+            ],
+            "id": 106,
+            "setup": 0,
+            "service": 300,
+            "waiting_time": 0,
+            "job": 106,
+            "load": [
+              20
+            ],
+            "arrival": 40390,
+            "duration": 716,
+            "violations": []
+          },
+          {
+            "type": "job",
+            "location": [
+              -3.72,
+              40.4
+            ],
+            "id": 103,
+            "setup": 0,
+            "service": 300,
+            "waiting_time": 0,
+            "job": 103,
+            "load": [
+              10
+            ],
+            "arrival": 41062,
+            "duration": 1088,
+            "violations": []
+          },
+          {
+            "type": "job",
+            "location": [
+              -3.67,
+              40.38
+            ],
+            "id": 104,
+            "setup": 0,
+            "service": 300,
+            "waiting_time": 0,
+            "job": 104,
+            "load": [
+              0
+            ],
+            "arrival": 41941,
+            "duration": 1667,
+            "violations": []
+          },
+          {
+            "type": "break",
+            "id": 101,
+            "setup": 0,
+            "service": 2700,
+            "waiting_time": 0,
+            "load": [
+              0
+            ],
+            "arrival": 43200,
+            "duration": 2626,
+            "violations": []
+          },
+          {
+            "type": "end",
+            "location": [
+              -3.7038,
+              40.4168
+            ],
+            "setup": 0,
+            "service": 0,
+            "waiting_time": 0,
+            "load": [
+              0
+            ],
+            "arrival": 45900,
+            "duration": 2626,
+            "violations": []
+          }
+        ],
+        "violations": []
+      }
+    ],
+    "ors_summary": {
+      "cost": 6056,
+      "routes": 2,
+      "unassigned": 0,
+      "delivery": [
+        80
+      ],
+      "amount": [
+        80
+      ],
+      "pickup": [
+        0
+      ],
+      "setup": 0,
+      "service": 7800,
+      "duration": 6056,
+      "waiting_time": 0,
+      "priority": 0,
+      "violations": [],
+      "computing_times": {
+        "loading": 59,
+        "solving": 2,
+        "routing": 0
+      }
+    },
+    "ortools_routes": [
+      {
+        "vehicle_id": "veh_1",
+        "total_distance": 18841.0,
+        "total_duration": 19133.0,
+        "travel_time": 3149,
+        "total_stops": 7,
+        "steps": [
+          {
+            "location_id": "depot",
+            "type": "depot",
+            "arrival": "08:00:00",
+            "departure": "08:00:00"
+          },
+          {
+            "location_id": "del_3",
+            "type": "delivery",
+            "arrival": "08:08:15",
+            "departure": "08:13:15"
+          },
+          {
+            "location_id": "del_6",
+            "type": "delivery",
+            "arrival": "08:19:26",
+            "departure": "08:24:26"
+          },
+          {
+            "location_id": "_break_0",
+            "type": "break",
+            "arrival": "12:00:00",
+            "departure": "12:45:00"
+          },
+          {
+            "location_id": "del_4",
+            "type": "delivery",
+            "arrival": "12:45:00",
+            "departure": "12:50:00"
+          },
+          {
+            "location_id": "del_8",
+            "type": "delivery",
+            "arrival": "12:58:22",
+            "departure": "13:03:22"
+          },
+          {
+            "location_id": "depot",
+            "type": "depot",
+            "arrival": "13:18:53",
+            "departure": null
+          }
+        ]
+      },
+      {
+        "vehicle_id": "veh_2",
+        "total_distance": 13776.0,
+        "total_duration": 17100.0,
+        "travel_time": 3040,
+        "total_stops": 7,
+        "steps": [
+          {
+            "location_id": "depot",
+            "type": "depot",
+            "arrival": "08:00:00",
+            "departure": "08:00:00"
+          },
+          {
+            "location_id": "del_2",
+            "type": "delivery",
+            "arrival": "08:08:08",
+            "departure": "08:13:08"
+          },
+          {
+            "location_id": "del_1",
+            "type": "delivery",
+            "arrival": "08:22:10",
+            "departure": "08:27:10"
+          },
+          {
+            "location_id": "del_5",
+            "type": "delivery",
+            "arrival": "08:33:06",
+            "departure": "08:38:06"
+          },
+          {
+            "location_id": "del_7",
+            "type": "delivery",
+            "arrival": "08:44:34",
+            "departure": "08:49:34"
+          },
+          {
+            "location_id": "_break_1",
+            "type": "break",
+            "arrival": "12:00:00",
+            "departure": "12:45:00"
+          },
+          {
+            "location_id": "depot",
+            "type": "depot",
+            "arrival": "12:45:00",
+            "departure": null
+          }
+        ]
+      }
+    ],
+    "ortools_statistics": {
+      "vehicles_used": 2,
+      "vehicles_available": 2,
+      "nodes_assigned": 8,
+      "nodes_unassigned": 0,
+      "total_distance": 32617.0,
+      "total_duration": 36233.0
+    },
+    "ortools_constraints": {
+      "passed": true,
+      "errors": []
+    },
+    "ors_constraints": {
+      "passed": true,
+      "errors": []
+    },
+    "timing": {
+      "ors_s": 1.0,
+      "ortools_s": 30.01
+    }
+  },
+  {
+    "scenario": "S3: 14 entregas, 3 veh, breaks + TW (opt. duraci\u00f3n)",
+    "comparison": {
+      "ors": {
+        "distance_m": 62775,
+        "travel_s": 9590,
+        "vehicles": 3,
+        "unassigned": 0
+      },
+      "ortools": {
+        "distance_m": 58820.0,
+        "travel_s": 10272,
+        "vehicles": 3,
+        "unassigned": 0
+      },
+      "diff": {
+        "distance_m": -3955.0,
+        "distance_pct": -6.3,
+        "travel_s": 682,
+        "travel_pct": 7.1,
+        "vehicles_match": true,
+        "unassigned_match": true
+      }
+    },
+    "ors_routes": [
+      {
+        "vehicle": 1,
+        "cost": 3448,
+        "delivery": [
+          50
+        ],
+        "amount": [
+          50
+        ],
+        "pickup": [
+          0
+        ],
+        "setup": 0,
+        "service": 4200,
+        "duration": 3448,
+        "waiting_time": 2912,
+        "priority": 0,
+        "steps": [
+          {
+            "type": "start",
+            "location": [
+              -3.7038,
+              40.4168
+            ],
+            "setup": 0,
+            "service": 0,
+            "waiting_time": 0,
+            "load": [
+              50
+            ],
+            "arrival": 37423,
+            "duration": 0,
+            "violations": []
+          },
+          {
+            "type": "job",
+            "location": [
+              -3.69,
+              40.42
+            ],
+            "id": 113,
+            "setup": 0,
+            "service": 300,
+            "waiting_time": 0,
+            "job": 113,
+            "load": [
+              40
+            ],
+            "arrival": 38157,
+            "duration": 734,
+            "violations": []
+          },
+          {
+            "type": "job",
+            "location": [
+              -3.67,
+              40.447
+            ],
+            "id": 101,
+            "setup": 0,
+            "service": 300,
+            "waiting_time": 0,
+            "job": 101,
+            "load": [
+              30
+            ],
+            "arrival": 38944,
+            "duration": 1221,
+            "violations": []
+          },
+          {
+            "type": "job",
+            "location": [
+              -3.69,
+              40.45
+            ],
+            "id": 105,
+            "setup": 0,
+            "service": 300,
+            "waiting_time": 0,
+            "job": 105,
+            "load": [
+              20
+            ],
+            "arrival": 39600,
+            "duration": 1577,
+            "violations": []
+          },
+          {
+            "type": "job",
+            "location": [
+              -3.68,
+              40.47
+            ],
+            "id": 107,
+            "setup": 0,
+            "service": 300,
+            "waiting_time": 2912,
+            "job": 107,
+            "load": [
+              10
+            ],
+            "arrival": 40288,
+            "duration": 1965,
+            "violations": []
+          },
+          {
+            "type": "job",
+            "location": [
+              -3.71,
+              40.46
+            ],
+            "id": 110,
+            "setup": 0,
+            "service": 300,
+            "waiting_time": 0,
+            "job": 110,
+            "load": [
+              0
+            ],
+            "arrival": 44132,
+            "duration": 2597,
+            "violations": []
+          },
+          {
+            "type": "break",
+            "id": 100,
+            "setup": 0,
+            "service": 2700,
+            "waiting_time": 0,
+            "load": [
+              0
+            ],
+            "arrival": 44432,
+            "duration": 2597,
+            "violations": []
+          },
+          {
+            "type": "end",
+            "location": [
+              -3.7038,
+              40.4168
+            ],
+            "setup": 0,
+            "service": 0,
+            "waiting_time": 0,
+            "load": [
+              0
+            ],
+            "arrival": 47983,
+            "duration": 3448,
+            "violations": []
+          }
+        ],
+        "violations": []
+      },
+      {
+        "vehicle": 2,
+        "cost": 3930,
+        "delivery": [
+          50
+        ],
+        "amount": [
+          50
+        ],
+        "pickup": [
+          0
+        ],
+        "setup": 0,
+        "service": 4200,
+        "duration": 3930,
+        "waiting_time": 6429,
+        "priority": 0,
+        "steps": [
+          {
+            "type": "start",
+            "location": [
+              -3.7038,
+              40.4168
+            ],
+            "setup": 0,
+            "service": 0,
+            "waiting_time": 0,
+            "load": [
+              50
+            ],
+            "arrival": 38024,
+            "duration": 0,
+            "violations": []
+          },
+          {
+            "type": "job",
+            "location": [
+              -3.74,
+              40.39
+            ],
+            "id": 106,
+            "setup": 0,
+            "service": 300,
+            "waiting_time": 0,
+            "job": 106,
+            "load": [
+              40
+            ],
+            "arrival": 38740,
+            "duration": 716,
+            "violations": []
+          },
+          {
+            "type": "job",
+            "location": [
+              -3.71,
+              40.37
+            ],
+            "id": 109,
+            "setup": 0,
+            "service": 300,
+            "waiting_time": 0,
+            "job": 109,
+            "load": [
+              30
+            ],
+            "arrival": 39600,
+            "duration": 1276,
+            "violations": []
+          },
+          {
+            "type": "break",
+            "id": 101,
+            "setup": 0,
+            "service": 2700,
+            "waiting_time": 2563,
+            "load": [
+              30
+            ],
+            "arrival": 40637,
+            "duration": 2013,
+            "violations": []
+          },
+          {
+            "type": "job",
+            "location": [
+              -3.68,
+              40.39
+            ],
+            "id": 111,
+            "setup": 0,
+            "service": 300,
+            "waiting_time": 0,
+            "job": 111,
+            "load": [
+              20
+            ],
+            "arrival": 45900,
+            "duration": 2013,
+            "violations": []
+          },
+          {
+            "type": "job",
+            "location": [
+              -3.65,
+              40.41
+            ],
+            "id": 108,
+            "setup": 0,
+            "service": 300,
+            "waiting_time": 3866,
+            "job": 108,
+            "load": [
+              10
+            ],
+            "arrival": 46534,
+            "duration": 2347,
+            "violations": []
+          },
+          {
+            "type": "job",
+            "location": [
+              -3.67,
+              40.38
+            ],
+            "id": 104,
+            "setup": 0,
+            "service": 300,
+            "waiting_time": 0,
+            "job": 104,
+            "load": [
+              0
+            ],
+            "arrival": 51324,
+            "duration": 2971,
+            "violations": []
+          },
+          {
+            "type": "end",
+            "location": [
+              -3.7038,
+              40.4168
+            ],
+            "setup": 0,
+            "service": 0,
+            "waiting_time": 0,
+            "load": [
+              0
+            ],
+            "arrival": 52583,
+            "duration": 3930,
+            "violations": []
+          }
+        ],
+        "violations": []
+      },
+      {
+        "vehicle": 3,
+        "cost": 2212,
+        "delivery": [
+          40
+        ],
+        "amount": [
+          40
+        ],
+        "pickup": [
+          0
+        ],
+        "setup": 0,
+        "service": 3900,
+        "duration": 2212,
+        "waiting_time": 379,
+        "priority": 0,
+        "steps": [
+          {
+            "type": "start",
+            "location": [
+              -3.7038,
+              40.4168
+            ],
+            "setup": 0,
+            "service": 0,
+            "waiting_time": 0,
+            "load": [
+              40
+            ],
+            "arrival": 45648,
+            "duration": 0,
+            "violations": []
+          },
+          {
+            "type": "job",
+            "location": [
+              -3.71,
+              40.43
+            ],
+            "id": 102,
+            "setup": 0,
+            "service": 300,
+            "waiting_time": 0,
+            "job": 102,
+            "load": [
+              30
+            ],
+            "arrival": 46136,
+            "duration": 488,
+            "violations": []
+          },
+          {
+            "type": "job",
+            "location": [
+              -3.73,
+              40.44
+            ],
+            "id": 114,
+            "setup": 0,
+            "service": 300,
+            "waiting_time": 0,
+            "job": 114,
+            "load": [
+              20
+            ],
+            "arrival": 46800,
+            "duration": 852,
+            "violations": []
+          },
+          {
+            "type": "break",
+            "id": 102,
+            "setup": 0,
+            "service": 2700,
+            "waiting_time": 0,
+            "load": [
+              20
+            ],
+            "arrival": 47100,
+            "duration": 852,
+            "violations": []
+          },
+          {
+            "type": "job",
+            "location": [
+              -3.735,
+              40.435
+            ],
+            "id": 112,
+            "setup": 0,
+            "service": 300,
+            "waiting_time": 379,
+            "job": 112,
+            "load": [
+              10
+            ],
+            "arrival": 50021,
+            "duration": 1073,
+            "violations": []
+          },
+          {
+            "type": "job",
+            "location": [
+              -3.72,
+              40.4
+            ],
+            "id": 103,
+            "setup": 0,
+            "service": 300,
+            "waiting_time": 0,
+            "job": 103,
+            "load": [
+              0
+            ],
+            "arrival": 51274,
+            "duration": 1647,
+            "violations": []
+          },
+          {
+            "type": "end",
+            "location": [
+              -3.7038,
+              40.4168
+            ],
+            "setup": 0,
+            "service": 0,
+            "waiting_time": 0,
+            "load": [
+              0
+            ],
+            "arrival": 52139,
+            "duration": 2212,
+            "violations": []
+          }
+        ],
+        "violations": []
+      }
+    ],
+    "ors_summary": {
+      "cost": 9590,
+      "routes": 3,
+      "unassigned": 0,
+      "delivery": [
+        140
+      ],
+      "amount": [
+        140
+      ],
+      "pickup": [
+        0
+      ],
+      "setup": 0,
+      "service": 12300,
+      "duration": 9590,
+      "waiting_time": 9720,
+      "priority": 0,
+      "violations": [],
+      "computing_times": {
+        "loading": 91,
+        "solving": 16,
+        "routing": 0
+      }
+    },
+    "ortools_routes": [
+      {
+        "vehicle_id": "veh_1",
+        "total_distance": 22170.0,
+        "total_duration": 22708.0,
+        "travel_time": 4337,
+        "total_stops": 8,
+        "steps": [
+          {
+            "location_id": "depot",
+            "type": "depot",
+            "arrival": "08:00:00",
+            "departure": "08:00:00"
+          },
+          {
+            "location_id": "del_6",
+            "type": "delivery",
+            "arrival": "10:00:00",
+            "departure": "10:05:00"
+          },
+          {
+            "location_id": "del_9",
+            "type": "delivery",
+            "arrival": "10:14:20",
+            "departure": "10:19:20"
+          },
+          {
+            "location_id": "_break_0",
+            "type": "break",
+            "arrival": "12:00:00",
+            "departure": "12:45:00"
+          },
+          {
+            "location_id": "del_10",
+            "type": "delivery",
+            "arrival": "12:45:00",
+            "departure": "12:50:00"
+          },
+          {
+            "location_id": "del_14",
+            "type": "delivery",
+            "arrival": "12:59:34",
+            "departure": "13:04:34"
+          },
+          {
+            "location_id": "del_12",
+            "type": "delivery",
+            "arrival": "14:00:00",
+            "departure": "14:05:00"
+          },
+          {
+            "location_id": "depot",
+            "type": "depot",
+            "arrival": "14:18:28",
+            "departure": null
+          }
+        ]
+      },
+      {
+        "vehicle_id": "veh_2",
+        "total_distance": 16092.0,
+        "total_duration": 17400.0,
+        "travel_time": 3274,
+        "total_stops": 8,
+        "steps": [
+          {
+            "location_id": "depot",
+            "type": "depot",
+            "arrival": "08:00:00",
+            "departure": "08:00:00"
+          },
+          {
+            "location_id": "del_2",
+            "type": "delivery",
+            "arrival": "10:00:00",
+            "departure": "10:05:00"
+          },
+          {
+            "location_id": "del_13",
+            "type": "delivery",
+            "arrival": "10:09:49",
+            "departure": "10:14:49"
+          },
+          {
+            "location_id": "del_1",
+            "type": "delivery",
+            "arrival": "10:22:56",
+            "departure": "10:27:56"
+          },
+          {
+            "location_id": "del_5",
+            "type": "delivery",
+            "arrival": "10:33:52",
+            "departure": "10:38:52"
+          },
+          {
+            "location_id": "del_7",
+            "type": "delivery",
+            "arrival": "12:00:00",
+            "departure": "12:05:00"
+          },
+          {
+            "location_id": "_break_1",
+            "type": "break",
+            "arrival": "12:05:00",
+            "departure": "12:50:00"
+          },
+          {
+            "location_id": "depot",
+            "type": "depot",
+            "arrival": "12:50:00",
+            "departure": null
+          }
+        ]
+      },
+      {
+        "vehicle_id": "veh_3",
+        "total_distance": 20558.0,
+        "total_duration": 23783.0,
+        "travel_time": 2661,
+        "total_stops": 7,
+        "steps": [
+          {
+            "location_id": "depot",
+            "type": "depot",
+            "arrival": "08:00:00",
+            "departure": "08:00:00"
+          },
+          {
+            "location_id": "_break_2",
+            "type": "break",
+            "arrival": "12:00:00",
+            "departure": "12:45:00"
+          },
+          {
+            "location_id": "del_3",
+            "type": "delivery",
+            "arrival": "12:45:00",
+            "departure": "12:50:00"
+          },
+          {
+            "location_id": "del_11",
+            "type": "delivery",
+            "arrival": "12:54:09",
+            "departure": "12:59:09"
+          },
+          {
+            "location_id": "del_8",
+            "type": "delivery",
+            "arrival": "14:00:00",
+            "departure": "14:05:00"
+          },
+          {
+            "location_id": "del_4",
+            "type": "delivery",
+            "arrival": "14:15:24",
+            "departure": "14:20:24"
+          },
+          {
+            "location_id": "depot",
+            "type": "depot",
+            "arrival": "14:36:23",
+            "departure": null
+          }
+        ]
+      }
+    ],
+    "ortools_statistics": {
+      "vehicles_used": 3,
+      "vehicles_available": 3,
+      "nodes_assigned": 14,
+      "nodes_unassigned": 0,
+      "total_distance": 58820.0,
+      "total_duration": 63891.0
+    },
+    "ortools_constraints": {
+      "passed": true,
+      "errors": []
+    },
+    "ors_constraints": {
+      "passed": false,
+      "errors": [
+        "ORS TW violada: job#107 arrival=40288 ventana=(43200, 54000)",
+        "ORS break fuera de ventana: arrival=40637 ventana=[43200,50400]",
+        "ORS TW violada: job#108 arrival=46534 ventana=(50400, 61200)",
+        "ORS TW violada: job#112 arrival=50021 ventana=(50400, 61200)"
+      ]
+    },
+    "timing": {
+      "ors_s": 0.92,
+      "ortools_s": 30.02
+    }
+  }
+]

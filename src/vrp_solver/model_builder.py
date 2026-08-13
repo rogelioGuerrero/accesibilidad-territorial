@@ -130,7 +130,8 @@ class ModelBuilder:
         if self.config.allow_skipping_nodes:
             self._add_drop_penalties()
 
-        # 13. Costos fijos y variables por vehículo (registra callbacks específicos)
+        # 13. Costos fijos (siempre) y variables por vehículo (solo con objetivo cost)
+        self._add_fixed_costs()
         if self.config.optimize_by == OptimizationObjective.cost:
             self._add_costs()
 
@@ -408,6 +409,14 @@ class ModelBuilder:
             penalty = priority_penalties.get(loc.priority, base_penalty)
             self.routing.AddDisjunction([index], penalty)
 
+    def _add_fixed_costs(self) -> None:
+        """Registra el fixed_cost de cada vehículo (aplica con cualquier objetivo)."""
+        SCALE = 100000
+        for veh_idx, veh in enumerate(self.vehicles):
+            fixed = int(veh.fixed_cost) * SCALE
+            if fixed > 0:
+                self.routing.SetFixedCostOfVehicle(fixed, veh_idx)
+
     def _add_costs(self) -> None:
         SCALE = 100000
         # MED-2: Capture required attrs as locals to avoid self references in closures
@@ -419,12 +428,7 @@ class ModelBuilder:
         n_real = self.n_real
 
         for veh_idx, veh in enumerate(self.vehicles):
-            # CRIT-1: Only fixed_cost goes in SetFixedCostOfVehicle.
             # cost_per_stop is added to the arc cost for edges arriving at real stops.
-            fixed = int(veh.fixed_cost) * SCALE
-            if fixed > 0:
-                self.routing.SetFixedCostOfVehicle(fixed, veh_idx)
-
             has_distance_cost = veh.cost_per_km > 0
             has_time_cost = veh.cost_per_hour > 0
             cost_per_stop_scaled = int(veh.cost_per_stop) * SCALE

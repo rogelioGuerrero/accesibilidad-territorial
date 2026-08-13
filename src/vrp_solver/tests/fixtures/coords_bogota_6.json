@@ -1,0 +1,30 @@
+{
+  "description": "6 puntos reales en Bogot\u00e1 (1 dep\u00f3sito + 5 entregas)",
+  "coords": [
+    [
+      4.65,
+      -74.1
+    ],
+    [
+      4.68,
+      -74.05
+    ],
+    [
+      4.62,
+      -74.15
+    ],
+    [
+      4.7,
+      -74.12
+    ],
+    [
+      4.6,
+      -74.08
+    ],
+    [
+      4.66,
+      -74.14
+    ]
+  ],
+  "coord_format": "[lat, lng]"
+}
