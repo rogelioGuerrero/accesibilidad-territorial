@@ -255,7 +255,15 @@ def generate_urban_bulletin(zones: list[UrbanZone], today: date) -> str:
     )
 
     try:
-        article = llm_call(prompt, max_tokens=800)
+        response = llm_call(
+            messages=[
+                {"role": "system", "content": "Eres el editor de UrbanSAT, boletín de monitoreo urbano satelital. Producto de TerraSAT. Respondes en español, formato profesional para redes sociales."},
+                {"role": "user", "content": prompt},
+            ],
+            temperature=0.6,
+            max_tokens=800,
+        )
+        article = response.choices[0].message.content.strip()
     except Exception as e:
         logging.error(f"LLM error: {e}")
         article = generate_urban_fallback(zones, today)
@@ -281,7 +289,7 @@ def generate_urban_fallback(zones: list[UrbanZone], today: date) -> str:
     if construccion:
         total_ha = sum(z.affected_area_ha for z in construccion)
         zonas_txt = ", ".join(f"{z.name} ({z.city})" for z in construccion)
-        lines.append(f"🏗️ Nuevas construcciones: {len(construccion)} zonas en {zonas_txt}. "}
+        lines.append(f"🏗️ Nuevas construcciones: {len(construccion)} zonas en {zonas_txt}. "
                       f"Total: {total_ha:,} ha con cambio de uso de suelo.")
         lines.append("")
 

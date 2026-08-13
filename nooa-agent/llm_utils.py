@@ -38,7 +38,7 @@ def _extract_rate_limit_wait(error: Exception) -> float | None:
 
 
 def llm_call(
-    messages: list[dict[str, str]],
+    messages: str | list[dict[str, str]],
     tools: list[dict[str, Any]] | None = None,
     temperature: float = 0.3,
     max_tokens: int = 1500,
@@ -53,7 +53,7 @@ def llm_call(
     en vez de usar backoff exponencial genérico.
 
     Args:
-        messages: lista de mensajes en formato OpenAI
+        messages: string (prompt simple) o lista de mensajes en formato OpenAI
         tools: tools schema opcional para tool calling
         temperature: temperatura del modelo
         max_tokens: máximo de tokens en la respuesta
@@ -67,6 +67,9 @@ def llm_call(
     Raises:
         RuntimeError: si todos los reintentos fallan
     """
+    if isinstance(messages, str):
+        messages = [{"role": "user", "content": messages}]
+
     selected_model = model or MODEL
     last_error = None
 
