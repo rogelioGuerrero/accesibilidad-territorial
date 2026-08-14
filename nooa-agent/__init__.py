@@ -15,7 +15,6 @@ from chat_agent import ChatVRPAgent
 from multi_agent import MultiEngineAgent
 from emergency_agent import EmergencyAgent, EmergencyEvent, Hospital, Ambulance, AidItem
 from emergency_autonomous import EmergencyAutonomousAgent
-from insurance_autonomous import InsuranceAutonomousAgent
 from mining_autonomous import MiningAutonomousAgent
 from logistics_agent import LogisticsAgent
 
@@ -24,4 +23,3 @@ from harness import ToolResult, ResultRegistry
 from memory_store import MemoryStore, Entity, Relation
 from harness_api import HarnessAPI, HARNESS_TOOLS
 from code_action import strategy, PredictStrategy
-from shared_tools import tool_search_sentinel, tool_generate_deformation_map

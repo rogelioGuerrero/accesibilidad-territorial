@@ -34,7 +34,3 @@ AVAILABLE_MATRICES: dict[str, dict[str, str | int]] = {
     },
 }
 
-# ─── CDSE / Sentinel ──────────────────────────────────────────────────
-
-AUTH_URL = "https://identity.dataspace.copernicus.eu/auth/realms/CDSE/protocol/openid-connect/token"
-CATALOGUE_URL = "https://catalogue.dataspace.copernicus.eu/odata/v1/Products"
